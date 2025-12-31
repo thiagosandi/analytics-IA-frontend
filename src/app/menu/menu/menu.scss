@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
+  padding: 0 40px 0 40px !important;
   color: #fff;
 }
 
@@ -12,6 +12,7 @@ img{
   width: 180px;
   margin-right: 30px;
   max-height: 150px;
+  margin-left: 180px;
 }
 
 .logo {
@@ -24,13 +25,14 @@ img{
   display: flex;
   gap: 24px;
   margin: 0;
-  padding: 0;
+  margin-right: 150px;
+  
 }
 
 .menu-items li {
   cursor: pointer;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
   margin-right: 100px;
   transition: opacity 0.2s;
 }
