@@ -1,0 +1,46 @@
+<div class="login-page">
+    <div class="bg">
+
+    <!-- Logo no topo -->
+    <div class="logo-container">
+        <img
+        src="/images/logo_principal.png"
+        alt="Logo"
+        class="logo"
+        />
+    </div>
+
+    <!-- Card de login -->
+    <div class="login-card">
+        <h2>Login</h2>
+
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="input-group">
+                <input
+                    type="password"
+                    placeholder="Usuário"
+                    formControlName="username"
+                />
+            </div>
+
+            <div class="input-group">
+                <input
+                    type="password"
+                    placeholder="Senha"
+                    formControlName="password"
+                />
+            </div>
+
+            <button type="submit" class="btn-login">
+                Entrar
+            </button>
+        </form>
+
+        <a class="forgot-password">Esqueceu a senha?</a>
+
+        <div class="register">
+        <a>Cadastrar novo usuário</a>
+        </div>
+    </div>
+    </div>
+</div>
