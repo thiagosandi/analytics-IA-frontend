@@ -39,7 +39,7 @@
     text-align: center;
 
     h2 {
-      color: #F59E0B;
+      color: #2563EB;
     }
   }
 
@@ -55,7 +55,7 @@
 
       &:focus {
         outline: none;
-        border-color: #F59E0B;
+        border-color: #2563EB;
       }
     }
   }
@@ -66,15 +66,22 @@
     margin-top: 8px;
     border-radius: 8px;
     border: none;
-    background-color: #F59E0B;
-    color: #ffffff;
+    background-color: #2563EB;
+    color: #FFF7ED;
     font-size: 16px;
     font-weight: 600;
     cursor: pointer;
 
     &:hover {
-      background-color: #F59E0B;
+      background-color: #3B82F6; /* tom mais escuro */
     }
+
+    /* Focus (acessibilidade) */
+    &:focus-visible {
+     outline: none;
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+    }
+
   }
 
   .forgot-password {

@@ -1,0 +1,15 @@
+<mat-dialog-content class="error-dialog">
+  <h2 class="error-title">
+    Login e/ou senha inválido(s).<br />
+    Tente novamente.
+  </h2>
+
+  <button
+    mat-raised-button
+    color="warn"
+    class="error-button"
+    (click)="closeDialog()"
+    cdkFocusInitial>
+    Ok
+  </button>
+</mat-dialog-content>

@@ -1,0 +1,38 @@
+.error-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+
+  padding: 24px;
+  min-width: 320px;
+}
+
+.error-title {
+  color: #d32f2f; /* vermelho Material */
+  font-size: 1.25rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.error-button {
+  background-color: #2563EB;
+
+  min-width: 120px;
+  font-weight: 600;
+  border-radius: 6px;
+}
+.error-button.mat-mdc-raised-button {
+  background-color: #2563EB;
+  color: #FFF7ED
+}
+
+.error-button:hover {
+  background-color: #3B82F6; /* tom mais escuro */
+}
+
+/* Focus (acessibilidade) */
+.error-button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5);
+}
