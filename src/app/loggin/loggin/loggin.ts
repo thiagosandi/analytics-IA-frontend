@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component , inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormsModule, Validators, FormGroup  } from '@angular/forms';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-loggin',
@@ -11,12 +12,16 @@ import { ReactiveFormsModule, FormBuilder, FormsModule, Validators, FormGroup  }
 })
 export class Loggin {
 
+  auth = inject(Auth);
+
   form!: any;
   
   constructor(
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+   
   ) {
+     console.log(this.auth),
     this.form = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
