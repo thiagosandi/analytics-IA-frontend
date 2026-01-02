@@ -5,10 +5,12 @@
         class="logo"
     />
 
-  <ul class="menu-items">
-    <li routerLink="/home" routerLinkActive="active">Home</li>
-    <li routerLink="/home" routerLinkActive="active">Apostas online</li>
-    <li routerLink="/insights" routerLinkActive="active">Dashboard</li>
-    <li class="logout" (click)="logout()">Logout</li>
-  </ul>
+  @if (authService.isLoggedIn()) {
+    <ul class="menu-items">
+      <li routerLink="/home" routerLinkActive="active">Home</li>
+      <li routerLink="/home" routerLinkActive="active">Apostas online</li>
+      <li routerLink="/insights" routerLinkActive="active">Dashboard</li>
+      <li class="logout" (click)="logout()">Logout</li>
+    </ul>
+  }
 </nav>  
