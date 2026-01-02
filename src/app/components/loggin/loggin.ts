@@ -2,9 +2,9 @@ import { Component , inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormsModule, Validators, FormGroup  } from '@angular/forms';
 import { Auth } from '@angular/fire/auth';
-import { AuthService } from '../../services/auth.service';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogError } from '../../shared/dialog/dialog-error/dialog-error';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-loggin',

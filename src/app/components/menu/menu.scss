@@ -1,18 +1,21 @@
 .top-menu {
   height: 64px;
-  background-color: #2563EB;
+  background-color: #4d7feb;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 40px 0 40px !important;
+  padding: 0 60px 0 60px !important;
   color: #fff;
+
+  width: 100%;
+  position: relative;
 }
 
 img{
   width: 180px;
   margin-right: 30px;
   max-height: 150px;
-  margin-left: 180px;
+  margin-left: 100px;
 }
 
 .logo {
@@ -23,9 +26,8 @@ img{
 .menu-items {
   list-style: none;
   display: flex;
-  gap: 24px;
-  margin: 0;
-  margin-right: 150px;
+  justify-content: space-between;
+  margin-right: 100px;
   
 }
 
@@ -48,16 +50,6 @@ img{
 
 .logout {
   color: #E5E7EB;
-}
-
-.top-menu {
-  height: 64px;
-  width: 100%;
-  background-color: #2563EB;
-  display: flex;
-  align-items: center;
-  position: relative;
-  padding: 0 24px;
 }
 
 /* Logo à esquerda */
