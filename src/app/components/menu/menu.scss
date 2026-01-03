@@ -1,7 +1,7 @@
 .top-menu {
   height: 64px;
-  background-color: #4d7feb;
-  border-bottom: 2px solid #3183ee; /* linha leve */
+  background-color: #005440;
+  // border-bottom: 2px solid #3183ee; /* linha leve */
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -32,6 +32,10 @@ img{
   padding: 0;
 }
 
+li{
+  display: flex;
+}
+
 .menu-items li {
   cursor: pointer;
   font-weight: 500;
@@ -46,9 +50,12 @@ img{
   opacity: 0.8;
 }
 
+
 .menu-items li a {
-  display: block;
-  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 15px 16px;
   text-decoration: none;        /* ❌ remove sublinhado */
   color: #ffffff;               /* azul escuro */
   font-weight: 500;
@@ -61,11 +68,11 @@ img{
 /* Hover */
 .menu-items li a:hover {
   background-color: #e0ecff;
-   color: #1d4ed8;
+   color: #005440;
 }
 
 /* Item ativo (rota atual) */
 .menu-items li.active a {
   background-color: #dbeafe;    /* azul claro */
-  color: #1d4ed8;
+  color: #005440;
 }
