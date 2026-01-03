@@ -1,24 +1,24 @@
 @if (authService.isLoggedIn()) {
   <nav class="top-menu">
     <img
-          src="/images/logo_principal.png"
-          alt="Logo"
-          class="logo"
-      />
+        src="/images/only_logo.png"
+        alt="Logo"
+        class="logo"
+    />
 
-      <ul class="menu-items">
-        <li routerLinkActive="active">
-          <a routerLink="/home">Home</a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/tips">Apostas online</a>
-        </li>
-        <li routerLinkActive="active">
-          <a routerLink="/insights">Dashboard</a>
-        </li>
-        <li routerLinkActive="active">
-          <a (click)="logout()">Logout</a>
-        </li>
-      </ul>
+    <ul class="menu-items">
+      <li routerLinkActive="active">
+        <a routerLink="/home">Home</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/tips">Apostas online</a>
+      </li>
+      <li routerLinkActive="active">
+        <a routerLink="/insights">Dashboard</a>
+      </li>
+      <li routerLinkActive="active">
+        <a (click)="logout()">Logout</a>
+      </li>
+    </ul>
   </nav>  
 }

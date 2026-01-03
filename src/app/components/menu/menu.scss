@@ -1,14 +1,16 @@
 .top-menu {
   height: 64px;
   background-color: #4d7feb;
-  border-bottom: 1px solid #113f9b; /* linha leve */
+  border-bottom: 2px solid #3183ee; /* linha leve */
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 60px 0 60px !important;
   color: #fff;
   width: 100%;
-  position: relative;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 img{
@@ -19,8 +21,8 @@ img{
 }
 
 .logo {
-  font-size: 24px;
-  font-weight: 600;
+  width: 150px;
+  height: 130px;
 }
 
 .menu-items {
@@ -66,10 +68,4 @@ img{
 .menu-items li.active a {
   background-color: #dbeafe;    /* azul claro */
   color: #1d4ed8;
-}
-
-/* Logo à esquerda */
-.logo {
-  font-size: 20px;
-  font-weight: 600;
 }
