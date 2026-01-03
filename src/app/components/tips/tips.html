@@ -1,0 +1,87 @@
+<div class="dashboard">
+  <div class="page-container">
+
+    <h1>Bem-vindo ao Painel de Apostas Online</h1>
+    <h2>Visualize apostas ao vivo</h2>
+
+    <!-- Menos Gols -->
+    <h3 class="market-title">Menos Gols
+      <mat-icon>arrow_downward</mat-icon>
+
+    </h3>
+    <div class="bets-grid">
+      @for (bet of menosGols; track $index) {
+        <mat-card class="bet-card">
+          <div class="card-header">
+            <span class="league">{{ bet.league }}</span>
+            <span class="teams">{{ bet.homeTeam }} x {{ bet.awayTeam }}</span>
+          </div>
+
+          <div class="card-body">
+            <span class="bet-type">{{ bet.type }}</span>
+            <span class="odd">Odd: @{{ bet.odd }}</span>
+            <span class="time">Tempo de jogo:  {{ currentTime() }}</span>
+          </div>
+        </mat-card>
+      }
+    </div>
+
+    <!-- Mais Gols -->
+    <h3 class="market-title">Mais Gols</h3>
+    <div class="bets-grid">
+      @for (bet of maisGols; track $index) {
+        <mat-card class="bet-card">
+          <div class="card-header">
+            <span class="league">{{ bet.league }}</span>
+            <span class="teams">{{ bet.homeTeam }} x {{ bet.awayTeam }}</span>
+          </div>
+
+          <div class="card-body">
+            <span class="bet-type">{{ bet.type }}</span>
+            <span class="odd">@{{ bet.odd }}</span>
+           <span class="time">Tempo de jogo:  {{ currentTime() }}</span>
+          </div>
+        </mat-card>
+      }
+    </div>
+
+    <!-- Handicap Positivo -->
+    <h3 class="market-title">Handicap Positivo</h3>
+    <div class="bets-grid">
+      @for (bet of handicapPositivo; track $index) {
+        <mat-card class="bet-card">
+          <div class="card-header">
+            <span class="league">{{ bet.league }}</span>
+            <span class="teams">{{ bet.homeTeam }} x {{ bet.awayTeam }}</span>
+          </div>
+
+          <div class="card-body">
+            <span class="bet-type">{{ bet.type }}</span>
+            <span class="odd">@{{ bet.odd }}</span>
+            <span class="time">Tempo de jogo:  {{ currentTime() }}</span>
+          </div>
+        </mat-card>
+      }
+    </div>
+
+    <!-- Handicap Negativo -->
+    <h3 class="market-title">Handicap Negativo</h3>
+    <div class="bets-grid">
+      @for (bet of handicapNegativo; track $index) {
+        <mat-card class="bet-card">
+          <div class="card-header">
+            <span class="league">{{ bet.league }}</span>
+            <span class="teams">{{ bet.homeTeam }} x {{ bet.awayTeam }}</span>
+          </div>
+
+          <div class="card-body">
+            <span class="bet-type">{{ bet.type }}</span>
+            <span class="odd">@{{ bet.odd }}</span>
+            <span class="time">Tempo de jogo:  {{ currentTime() }}</span>
+          </div>
+        </mat-card>
+      }
+    </div>
+
+  </div>
+</div>

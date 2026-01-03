@@ -7,10 +7,18 @@
       />
 
       <ul class="menu-items">
-        <li routerLink="/home" routerLinkActive="active">Home</li>
-        <li routerLink="/home" routerLinkActive="active">Apostas online</li>
-        <li routerLink="/insights" routerLinkActive="active">Dashboard</li>
-        <li class="logout" (click)="logout()">Logout</li>
+        <li routerLinkActive="active">
+          <a routerLink="/home">Home</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/tips">Apostas online</a>
+        </li>
+        <li routerLinkActive="active">
+          <a routerLink="/insights">Dashboard</a>
+        </li>
+        <li routerLinkActive="active">
+          <a (click)="logout()">Logout</a>
+        </li>
       </ul>
   </nav>  
 }

@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.html',
+  imports: [RouterModule],
   styleUrls: ['./menu.scss']
 })
 export class MenuComponent {
