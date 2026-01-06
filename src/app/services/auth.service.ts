@@ -6,10 +6,17 @@ import {
   signOut,
   User
 } from '@angular/fire/auth';
+import { firstValueFrom } from 'rxjs';
+import { authState } from '@angular/fire/auth';
+  import { setLogLevel, LogLevel } from "@angular/fire";
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private auth = inject(Auth);
+
+  ngOnInit() {
+    setLogLevel(LogLevel.VERBOSE);
+  }
 
   login(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password);
@@ -24,7 +31,7 @@ export class AuthService {
   }
 
   async getToken(): Promise<string | null> {
-    const user = await this.auth.currentUser;
+    const user = await firstValueFrom(authState(this.auth));
     return user ? user.getIdToken() : null;
   }
 

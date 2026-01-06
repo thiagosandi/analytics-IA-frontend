@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthFacade } from '../auth/facade/auth.facade';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
@@ -16,13 +16,13 @@ export class MenuComponent {
  
   constructor(
     private router: Router,
-    public authService: AuthService
+    public authFacade: AuthFacade
   ) {}
 
 
   logout(): void {
     // limpar token, session, etc
-    this.authService.logout();
+    this.authFacade.logout();
     this.router.navigate(['/login']);
   }
 }

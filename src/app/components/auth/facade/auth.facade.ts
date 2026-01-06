@@ -4,23 +4,21 @@ import { AuthService } from "../../../services/auth.service";
 
 export class AuthFacade {
 
-  private authService = inject(AuthService);
+    private authService = inject(AuthService);
 
-  private readonly TOKEN_KEY = 'token';
+    private readonly TOKEN_KEY = 'token';
 
-  private _token = signal<string | null>(
-    localStorage.getItem(this.TOKEN_KEY)
-  );
+    private _token = signal<string | null>(
+        localStorage.getItem(this.TOKEN_KEY)
+    );
 
-  isLoggedIn = computed(() => !!this._token());
+    isLoggedIn = computed(() => !!this._token());
 
-  async login(email: string, password: string) {
-    const cred = await this.authService.login(email, password);
-    const token = await cred.user.getIdToken();
-
-    localStorage.setItem(this.TOKEN_KEY, token);
-    this._token.set(token);
-  }
+    login(email: string, password: string) {
+        localStorage.setItem(this.TOKEN_KEY, 'true');
+        this._token.set('true');
+        this.authService.login(email, password);
+    }
 
   logout() {
     localStorage.removeItem(this.TOKEN_KEY);

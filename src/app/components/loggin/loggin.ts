@@ -5,6 +5,7 @@ import { Auth } from '@angular/fire/auth';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { DialogError } from '../../shared/dialog/dialog-error/dialog-error';
 import { AuthService } from '../../services/auth.service';
+import { AuthFacade } from '../auth/facade/auth.facade';
 
 @Component({
   selector: 'app-loggin',
@@ -25,7 +26,7 @@ export class Loggin {
   constructor(
     private fb: FormBuilder,
     private router: Router,
-     private authService: AuthService
+     private authFacade: AuthFacade
    
   ) {
      console.log(this.auth),
@@ -40,7 +41,7 @@ export class Loggin {
     const password = this.form.value.password;
 
     try {
-      await this.authService.login(email, password);
+      await this.authFacade.login(email, password);
       this.router.navigate(['/home']);
     } catch (error) {
       if (this.dialogRef) return; // 👈 evita abrir 2x
