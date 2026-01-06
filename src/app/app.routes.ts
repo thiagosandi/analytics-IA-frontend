@@ -1,6 +1,4 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './components/home/home';
-import { TipsComponent } from './components/tips/tips';
 
 export const routes: Routes = [
   {
@@ -20,11 +18,17 @@ export const routes: Routes = [
       import('./components/home/home')
         .then(m => m.HomeComponent)
   },
-   {
+  {
     path: 'tips',
-    loadComponent: () =>
-      import('./components/tips/tips')
-        .then(m => m.TipsComponent)
+    loadChildren: () =>
+      import('./components/tips/tips.routes')
+        .then(m => m.TIPS_ROUTES)
+  },
+  {
+    path: 'dashboard',
+    loadChildren: () =>
+      import('./components/dashboard-central/dashboard-central.routes')
+        .then(m => m.DASHBOARD_CENTRAL_ROUTES)
   },
   {
     path: '**',
