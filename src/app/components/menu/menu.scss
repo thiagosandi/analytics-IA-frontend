@@ -1,6 +1,6 @@
 .top-menu {
   height: 64px;
-  background-color: #005440;
+  background-color: #080c16;
   // border-bottom: 2px solid #3183ee; /* linha leve */
   display: flex;
   align-items: center;
@@ -43,11 +43,12 @@ li{
   margin-right: 10px;
   transition: opacity 0.2s;
   border-radius: 8px;
-  color: #fff;
 }
 
 .menu-items li:hover {
   opacity: 0.8;
+  background-color: #2952ac;
+  color: #f7f7f7;
 }
 
 
@@ -56,8 +57,7 @@ li{
   align-items: center;
   gap: 6px;
   padding: 15px 16px;
-  text-decoration: none;        /* ❌ remove sublinhado */
-  color: #ffffff;               /* azul escuro */
+  text-decoration: none;        /* ❌ remove sublinhado */            /* azul escuro */
   font-weight: 500;
   border-radius: 8px;
   transition: background 0.2s ease, color 0.2s ease;
@@ -68,7 +68,7 @@ li{
 /* Hover */
 .menu-items li a:hover {
   background-color: #e0ecff;
-   color: #005440;
+   color: #f7f7f7;
 }
 
 /* Item ativo (rota atual) */

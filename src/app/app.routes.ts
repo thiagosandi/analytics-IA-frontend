@@ -1,16 +1,13 @@
 import { Routes } from '@angular/router';
 import { AuthGuard } from './components/auth/guards/auth.guards';
+import { LoginGuard } from './components/auth/guards/login.guards';
 
 export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
-  },
 
   // 🔓 ROTA PÚBLICA
   {
     path: 'login',
+    canActivate: [LoginGuard],
     loadComponent: () =>
       import('./components/loggin/loggin')
         .then(m => m.Loggin)
@@ -21,6 +18,11 @@ export const routes: Routes = [
     path: '',
     canActivate: [AuthGuard],
     children: [
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
       {
         path: 'home',
         loadComponent: () =>

@@ -2,86 +2,70 @@
   <div class="page-container">
 
     <h1>Bem-vindo ao Painel de Apostas Online</h1>
-    <h2>Visualize apostas ao vivo</h2>
+    <h2>Visualize apostas ao vivo. {{ tips }}</h2>
 
-    <!-- Menos Gols -->
-    <h3 class="market-title">Menos Gols
-      <mat-icon>arrow_downward</mat-icon>
-
-    </h3>
+    <div class="grid-header">
+  🔥 Mais recentes primeiro
+    </div>
     <div class="bets-grid">
       @for (bet of menosGols; track $index) {
         <mat-card class="bet-card">
-          <div class="card-header">
-            <span class="league">{{ bet.league }}</span>
-            <span class="teams">{{ bet.homeTeam }} x {{ bet.awayTeam }}</span>
+          <div class="bet-header">
+            <div class="badges">
+              <span class="badge league">{{ bet.league }}</span>
+              <span class="badge market">{{ bet.overUnder ? 'Over/Under' : 'Handicap' }}</span>
+            </div>
+
+            <span class="badge value-bet">
+              <span class="arrow">↗</span> Value Bet
+            </span>
           </div>
 
-          <div class="card-body">
-            <span class="bet-type">{{ bet.type }}</span>
-            <span class="odd">Odd: @{{ bet.odd }}</span>
-            <span class="time">Tempo de jogo:  {{ currentTime() }}</span>
-          </div>
-        </mat-card>
-      }
-    </div>
-
-    <!-- Mais Gols -->
-    <h3 class="market-title">Mais Gols</h3>
-    <div class="bets-grid">
-      @for (bet of maisGols; track $index) {
-        <mat-card class="bet-card">
-          <div class="card-header">
-            <span class="league">{{ bet.league }}</span>
-            <span class="teams">{{ bet.homeTeam }} x {{ bet.awayTeam }}</span>
+          <!-- TIMES -->
+          <div class="teams">
+            <div class="team home">{{ bet.homeTeam }}</div>
+            <div class="vs">vs</div>
+            <div class="team away">{{ bet.awayTeam }}</div>
           </div>
 
-          <div class="card-body">
-            <span class="bet-type">{{ bet.type }}</span>
-            <span class="odd">@{{ bet.odd }}</span>
-           <span class="time">Tempo de jogo:  {{ currentTime() }}</span>
-          </div>
-        </mat-card>
-      }
-    </div>
-
-    <!-- Handicap Positivo -->
-    <h3 class="market-title">Handicap Positivo</h3>
-    <div class="bets-grid">
-      @for (bet of handicapPositivo; track $index) {
-        <mat-card class="bet-card">
-          <div class="card-header">
-            <span class="league">{{ bet.league }}</span>
-            <span class="teams">{{ bet.homeTeam }} x {{ bet.awayTeam }}</span>
+          <!-- PICK -->
+          <div class="pick">
+            <span class="pick-type text-gradient">{{ bet.type }}</span>
+            <span class="confidence">
+              linha atual: U2.5
+            </span>
           </div>
 
-          <div class="card-body">
-            <span class="bet-type">{{ bet.type }}</span>
-            <span class="odd">@{{ bet.odd }}</span>
-            <span class="time">Tempo de jogo:  {{ currentTime() }}</span>
-          </div>
-        </mat-card>
-      }
-    </div>
+          <!-- ODDS -->
+          <div class="odds-box">
+            <div class="odd">
+              <span class="label">Odds Mínima</span>
+              <span class="value">@{{ bet.odd }}</span>
+            </div>
 
-    <!-- Handicap Negativo -->
-    <h3 class="market-title">Handicap Negativo</h3>
-    <div class="bets-grid">
-      @for (bet of handicapNegativo; track $index) {
-        <mat-card class="bet-card">
-          <div class="card-header">
-            <span class="league">{{ bet.league }}</span>
-            <span class="teams">{{ bet.homeTeam }} x {{ bet.awayTeam }}</span>
+            <div class="odd">
+              <span class="label">Odds Atual</span>
+              <span class="value highlight">
+                @{{ bet.currentOdd }}
+                <span class="diff positive">↗ {{ (bet.currentOdd - bet.odd) | number:'1.0-4' }}</span>
+              </span>
+            </div>
           </div>
 
-          <div class="card-body">
-            <span class="bet-type">{{ bet.type }}</span>
-            <span class="odd">@{{ bet.odd }}</span>
-            <span class="time">Tempo de jogo:  {{ currentTime() }}</span>
+          <hr />
+
+          <!-- INSIGHT -->
+          <p class="insight">
+           Inserir dados sobre a aposta se caso ouvir em detalhes após clicar no card
+          </p>
+
+          <!-- FOOTER -->
+          <div class="footer">
+            <span class="time">🕒 {{ date | date:'dd/MM/yyyy'  }}</span>
+            <span class="time recent">
+              há 3 min
+            </span>
           </div>
         </mat-card>
       }
     </div>
-
-  </div>
-</div>

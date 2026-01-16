@@ -42,7 +42,6 @@ export class Loggin {
 
     try {
       await this.authFacade.login(email, password);
-      this.router.navigate(['/home']);
     } catch (error) {
       if (this.dialogRef) return; // 👈 evita abrir 2x
 

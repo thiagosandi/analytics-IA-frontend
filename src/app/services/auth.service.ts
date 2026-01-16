@@ -6,7 +6,7 @@ import {
   signOut,
   User
 } from '@angular/fire/auth';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, from, Observable, of, switchMap } from 'rxjs';
 import { authState } from '@angular/fire/auth';
   import { setLogLevel, LogLevel } from "@angular/fire";
 
@@ -14,12 +14,24 @@ import { authState } from '@angular/fire/auth';
 export class AuthService {
   private auth = inject(Auth);
 
-  ngOnInit() {
-    setLogLevel(LogLevel.VERBOSE);
+  value = signal(0);
+
+  firstName = signal('Thiago');
+
+  finalName = computed(() => this.firstName() + ': ' + this.value());
+
+  increase() {
+    this.value.update(v => v + 1);
   }
 
+  constructor() {
+    setLogLevel(LogLevel.VERBOSE);
+  }
+  
   login(email: string, password: string) {
-    return signInWithEmailAndPassword(this.auth, email, password);
+    return from(
+    signInWithEmailAndPassword(this.auth, email, password)
+    );
   }
 
   register(email: string, password: string) {
@@ -30,10 +42,13 @@ export class AuthService {
     return signOut(this.auth);
   }
 
-  async getToken(): Promise<string | null> {
-    const user = await firstValueFrom(authState(this.auth));
-    return user ? user.getIdToken() : null;
-  }
+  getToken(): Observable<string | null> {
+  return authState(this.auth).pipe(
+    switchMap(user =>
+      user ? from(user.getIdToken()) : of(null)
+    )
+  );
+}
 
   get currentUser(): User | null {
     return this.auth.currentUser;

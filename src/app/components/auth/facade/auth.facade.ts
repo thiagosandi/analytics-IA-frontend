@@ -1,10 +1,12 @@
 import { Injectable, inject, signal, computed } from '@angular/core';
 import { AuthService } from "../../../services/auth.service";
+import { Router } from '@angular/router';
 @Injectable({ providedIn: 'root' })
 
 export class AuthFacade {
 
     private authService = inject(AuthService);
+    private router = inject(Router);
 
     private readonly TOKEN_KEY = 'token';
 
@@ -15,9 +17,27 @@ export class AuthFacade {
     isLoggedIn = computed(() => !!this._token());
 
     login(email: string, password: string) {
-        localStorage.setItem(this.TOKEN_KEY, 'true');
-        this._token.set('true');
-        this.authService.login(email, password);
+        return this.authService.login(email, password).subscribe({
+            next: (response) => {
+          let token;
+          this.authService.getToken().subscribe((token) => {
+            if(!token){
+               localStorage.removeItem(this.TOKEN_KEY);
+                this._token.set(null);
+                return;
+            }
+               localStorage.setItem(this.TOKEN_KEY, token);
+               this._token.set(token);
+               this.router.navigate(['/home']);
+          }); 
+
+          
+        },
+        error: () => {
+          this._token.set(null);
+          localStorage.removeItem(this.TOKEN_KEY);
+        }
+      });
     }
 
   logout() {
