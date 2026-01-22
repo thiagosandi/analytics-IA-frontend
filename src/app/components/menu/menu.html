@@ -6,14 +6,15 @@
     />
 
     <ul class="menu-items">
-      <li routerLinkActive="active">
-       
-        <a routerLink="/home" class="text-gradient">
-           <mat-icon>home</mat-icon>
-          Home
-        </a>
-      </li>
+     
       @if (authFacade.isLoggedIn()) {
+        <li routerLinkActive="active">
+       
+          <a routerLink="/home" class="text-gradient">
+            <mat-icon>home</mat-icon>
+            Home
+          </a>
+        </li>
         <li routerLinkActive="active">
           
           <a routerLink="/tips"  class="text-gradient">
