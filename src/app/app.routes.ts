@@ -8,27 +8,40 @@ export const routes: Routes = [
   {
     path: 'login',
     canActivate: [LoginGuard],
+    data: { hideMenu: true },
     loadComponent: () =>
-      import('./components/loggin/loggin')
+      import('./components/auth/loggin/loggin')
         .then(m => m.Loggin)
   },
+
+  // 🔓 ROTA PÚBLICA
+  {
+    path: 'registrar',
+    data: { hideMenu: true },
+    loadComponent: () =>
+      import('./components/auth/register/register')
+        .then(m => m.RegisterComponent)
+  },
+
+  {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+  },
+
+  {
+      path: 'home',
+      loadComponent: () =>
+        import('./components/home/home')
+          .then(m => m.HomeComponent)
+    },
 
   // 🔐 ÁREA AUTENTICADA
   {
     path: '',
     canActivate: [AuthGuard],
     children: [
-      {
-        path: '',
-        redirectTo: 'home',
-        pathMatch: 'full'
-      },
-      {
-        path: 'home',
-        loadComponent: () =>
-          import('./components/home/home')
-            .then(m => m.HomeComponent)
-      },
+      
       {
         path: 'tips',
         loadChildren: () =>

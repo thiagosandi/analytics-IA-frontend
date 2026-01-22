@@ -1,0 +1,55 @@
+<div class="register-container">
+    <a class="back-link" (click)="voltarInicio()">
+      <span class="material-icons">arrow_back</span>
+      Voltar para o início
+    </a>
+    <div class="card">
+
+      <!-- Logo no topo -->
+      <div class="logo-container">
+          <img
+          src="/images/logo_principal.png"
+          alt="Logo"
+          class="logo"
+          />
+      </div>
+
+
+      <h1>Login</h1>
+      <p>Entrar com sua conta para continuar</p>
+
+      <form [formGroup]='form' (ngSubmit)="onSubmit()">
+
+        <label>Email</label>
+        <div class="input-group">
+          <span class="material-icons">mail</span>
+          <input
+            type="email"
+            placeholder="seu@email.com"
+            formControlName="username"
+          />
+        </div>
+
+        <label>Senha</label>
+        <div class="input-group">
+          <span class="material-icons">lock</span>
+          <input
+            type="password"
+            placeholder="••••••••"
+            formControlName="password"
+          />
+        </div>
+
+        <button type="submit" [disabled]="loading">
+          {{ loading ? 'Entrando...' : 'Entrar' }}
+        </button>
+
+      </form>
+
+      <div class="footer">
+        Não tem uma conta?
+        <a class="criar-conta" routerLink="/registrar">Criar conta</a>
+      </div>
+
+    </div>
+</div>

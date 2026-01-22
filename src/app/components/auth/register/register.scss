@@ -1,0 +1,154 @@
+.register-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #0c1324;
+  padding-top: 170px;
+}
+
+/* LINK VOLTAR */
+.back-link {
+  width: 100%;
+  max-width: 445px; /* MESMA LARGURA DO CARD */
+  margin-bottom: 16px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  cursor: pointer;
+  color: #8fa3c8;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  color: #ffffff;
+}
+
+.back-link .material-icons {
+  font-size: 18px;
+}
+
+/* LOGO */
+.logo-container {
+  height: 150px;
+  margin-top: -50px;
+  margin-bottom: 30px;
+}
+
+.logo {
+  margin: auto;
+  width: 230px;
+  display: flex;
+}
+
+.loggin {
+  cursor: pointer;
+}
+
+/* CARD */
+.card {
+  width: 100%;
+  max-width: 380px;
+  padding: 32px;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #020617, #020617);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.05),
+              0 20px 50px rgba(0,0,0,0.6);
+  color: #fff;
+  text-align: center;
+}
+
+/* ÍCONE */
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  margin: 0 auto 16px;
+  background: linear-gradient(135deg, #22c55e, #06b6d4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+/* TEXTOS */
+h1 {
+  margin-bottom: 4px;
+}
+
+p {
+  color: #94a3b8;
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+/* FORM */
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.input-group {
+  display: flex;
+  align-items: center;
+  background: #020617;
+  border: 1px solid #1e293b;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 16px;
+}
+
+.input-group span {
+  color: #64748b;
+  margin-right: 8px;
+}
+
+.input-group input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: #fff;
+}
+
+/* BOTÃO */
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  background: linear-gradient(90deg, #22c55e, #06b6d4);
+  color: #020617;
+}
+
+button:disabled {
+  opacity: 0.7;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 20px;
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.footer a {
+  color: #22c55e;
+  margin-left: 4px;
+  text-decoration: none;
+}
+
+/* ERRO */
+.error {
+  display: block;
+  margin-top: 12px;
+  color: #f87171;
+  font-size: 13px;
+}

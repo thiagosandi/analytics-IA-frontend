@@ -1,5 +1,4 @@
-@if (authFacade.isLoggedIn()) {
-  <nav class="top-menu">
+<nav class="top-menu">
     <img
         src="/images/only_logo.png"
         alt="Logo"
@@ -14,26 +13,36 @@
           Home
         </a>
       </li>
-      <li routerLinkActive="active">
+      @if (authFacade.isLoggedIn()) {
+        <li routerLinkActive="active">
+          
+          <a routerLink="/tips"  class="text-gradient">
+            <mat-icon>attach_money</mat-icon>
+            Apostas online</a>
+        </li>
+        <li routerLinkActive="active">
         
-        <a routerLink="/tips"  class="text-gradient">
-          <mat-icon>attach_money</mat-icon>
-          Apostas online</a>
-      </li>
-      <li routerLinkActive="active">
-       
-        <a routerLink="/dashboard"  class="text-gradient">
-           <mat-icon>dashboard</mat-icon>
-          Dashboard
-        </a>
-      </li>
-      <li routerLinkActive="active">
-       
-        <a (click)="logout()"  class="text-gradient">
-           <mat-icon>person_outline</mat-icon>
-          Logout
-        </a>
-      </li>
+          <a routerLink="/dashboard"  class="text-gradient">
+            <mat-icon>dashboard</mat-icon>
+            Dashboard
+          </a>
+        </li>
+        <li routerLinkActive="active">
+            <a (click)="logout()"  class="text-gradient">
+            <mat-icon>person_outline</mat-icon>
+            Logout
+          </a>
+        </li>
+      }
+      @if (!authFacade.isLoggedIn()) {
+        <li routerLinkActive="active">
+          
+          <a routerLink="/login"  class="text-gradient">
+            <mat-icon>person_outline</mat-icon>
+            Login
+          </a>
+        </li>
+      }
+      
     </ul>
-  </nav>  
-}
+</nav>

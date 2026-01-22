@@ -1,0 +1,59 @@
+<div class="register-container">
+   <a class="back-link" (click)="voltarInicio()">
+    <span class="material-icons">arrow_back</span>
+    Voltar para o início
+  </a>
+  <div class="card">
+
+    <!-- Logo no topo -->
+    <div class="logo-container">
+        <img
+        src="/images/logo_principal.png"
+        alt="Logo"
+        class="logo"
+        />
+    </div>
+
+
+    <h1>Criar Conta</h1>
+    <p>Crie sua conta para acessar as previsões</p>
+
+    <form [formGroup]='form' (ngSubmit)="submit()">
+
+      <label>Email</label>
+      <div class="input-group">
+        <span class="material-icons">mail</span>
+        <input
+          type="email"
+          placeholder="seu@email.com"
+          formControlName="email"
+        />
+      </div>
+
+      <label>Senha</label>
+      <div class="input-group">
+        <span class="material-icons">lock</span>
+        <input
+          type="password"
+          placeholder="••••••••"
+          formControlName="password"
+        />
+      </div>
+
+      <button type="submit" [disabled]="loading">
+        {{ loading ? 'Criando...' : 'Criar Conta' }}
+      </button>
+
+      @if(error){
+        <span class="error">{{ error }}</span>
+      }
+
+    </form>
+
+    <div class="footer">
+      Já tem uma conta?
+      <a class="loggin" routerLink="/login">Entrar</a>
+    </div>
+
+  </div>
+</div>
